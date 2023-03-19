@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 import pandas as pd
-import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
@@ -10,6 +9,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import plotly.io as pio
+import webbrowser
 
 
 # Load dataset
@@ -62,6 +62,10 @@ def plot_charts(df):
     pio.write_html(fig_pie, file='pie_chart.html', auto_open=False)
     pio.write_html(fig_scatter, file='scatter_matrix.html', auto_open=False)
     pio.write_html(fig_regression, file='linear_regression_plots.html', auto_open=False)
+
+    webbrowser.open('pie_chart.html')
+    webbrowser.open('scatter_matrix.html')
+    webbrowser.open('linear_regression_plots.html')
 
 
 # Browse file
