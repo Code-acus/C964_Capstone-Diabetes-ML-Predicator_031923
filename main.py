@@ -59,13 +59,24 @@ def plot_charts(df):
 
     fig_regression.update_layout(title_text='Linear Regression Plots', showlegend=False)
 
+    # Plot histograms
+    fig_histograms = make_subplots(rows=1, cols=X.shape[1], subplot_titles=X.columns)
+    for idx, col in enumerate(X.columns):
+        fig_histograms.add_trace(go.Histogram(x=X[col], name=col), row=1, col=idx + 1)
+
+    fig_histograms.update_layout(title_text='Histograms')
+
     pio.write_html(fig_pie, file='pie_chart.html', auto_open=False)
     pio.write_html(fig_scatter, file='scatter_matrix.html', auto_open=False)
     pio.write_html(fig_regression, file='linear_regression_plots.html', auto_open=False)
+    # Save histograms to HTML file
+    pio.write_html(fig_histograms, file='histograms.html', auto_open=False)
 
     webbrowser.open('pie_chart.html')
     webbrowser.open('scatter_matrix.html')
     webbrowser.open('linear_regression_plots.html')
+    # Open histograms HTML file in default browser
+    webbrowser.open('histograms.html')
 
 
 # Browse file
