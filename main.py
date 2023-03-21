@@ -101,8 +101,11 @@ ttk.Button(root, text="Analyze", command=analyze_data).grid(column=1, row=1)
 ttk.Label(root, textvariable=mse_var).grid(column=1, row=2)
 ttk.Label(root, textvariable=r2_var).grid(column=1, row=3)
 
-mse_explanation = "MSE (Mean Squared Error) measures the average squared difference between predicted and actual values. Lower values indicate better model performance."
-r2_explanation = "R2 Score represents the proportion of the variance in the dependent variable that is predictable from the independent variable(s). It ranges from 0 to 1, with higher values indicating better model performance."
+mse_explanation = "MSE (Mean Squared Error) measures the average squared difference between predicted " \
+                  "and actual values. Lower values indicate better model performance."
+r2_explanation = "R2 Score represents the proportion of the variance in the dependent variable that " \
+                 "is predictable from the independent variable(s). " \
+                 "It ranges from 0 to 1, with higher values indicating better model performance."
 
 ttk.Label(root, text=mse_explanation, wraplength=400).grid(column=1, row=4)
 ttk.Label(root, text=r2_explanation, wraplength=400).grid(column=1, row=5)
